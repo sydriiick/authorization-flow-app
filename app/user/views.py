@@ -46,6 +46,7 @@ class ManageUserView(viewsets.ModelViewSet):
     queryset = User.objects.all()
     authentication_classes = [authentication.TokenAuthentication]
     permission_classes = [permissions.IsAuthenticated]
+    http_method_names = ['put','get']
 
     @action(detail=True, methods=['get', 'put'])
     def roles(self, request, pk=None):
@@ -90,6 +91,7 @@ class RoleViewSet(viewsets.ModelViewSet):
     queryset = Role.objects.all()
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
+    http_method_names = ['put','get', 'post']
 
     def get_serializer_class(self):
         """Return the serializer class for request."""
@@ -126,6 +128,7 @@ class PermissionViewSet(viewsets.ModelViewSet):
     queryset = Permission.objects.all()
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
+    http_method_names = ['put','get', 'post']
 
     def perform_create(self, serializer):
         """Create a new permission."""

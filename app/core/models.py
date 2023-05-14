@@ -66,7 +66,7 @@ class UserRole(models.Model):
 
 class Role(models.Model):
     """Role object."""
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255, unique=True)
     permissions = models.ManyToManyField('Permission', blank=True)
 
     def __str__(self):
@@ -75,7 +75,7 @@ class Role(models.Model):
 
 class Permission(models.Model):
     """Permission object."""
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255, unique=True)
 
     def __str__(self):
         return self.role
