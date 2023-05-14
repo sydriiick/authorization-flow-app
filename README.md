@@ -17,54 +17,54 @@ To use the project, follow these commands:
 # API methods
 /api/signup
   - POST: A user can be signed up with a username, email and password.
-    {
-      "username": "string",
-      "email": "user@example.com",
-      "password": "string"
-    }
+    - {
+        "username": "string",
+        "email": "user@example.com",
+        "password": "string"
+      }
 /api/login
   - POST: A user can be logged in with username/email and password
-    {
-      "username": "string",
-      "password": "string"
-    }
-- /api/permissions
+    - {
+        "username": "string",
+        "password": "string"
+      }
+ /api/permissions
   - GET: get available permissions
   - POST: create new permission (e.g access, read, delete, etc)
-    {
-      "name": "string"
-    }
-- /api/roles
+    - {
+        "name": "string"
+      }
+ /api/roles
   - GET: get available roles
   - POST: create a new role (e.g staff, admin, hr, etc)
-    {
-      "name": "string",
-      "permissions": [  # not required
-          {
-            "name": "string" 
-          }
-      ]
-    }
-- /api/roles/:id/permissions
+    - {
+        "name": "string",
+        "permissions": [  # not required
+            {
+              "name": "string" 
+            }
+        ]
+      }
+/api/roles/:id/permissions
   - GET: get available permission to a certain role
   - PUT: assign a permission to a role
-    {
-      "name": "string",
-      "permissions": [
-            {
-              "name": "string" # Many=True
-            }
-       ]
-    }
-- /api/users/:id/roles
+    - {
+        "name": "string",
+        "permissions": [
+              {
+                "name": "string" # Many=True
+              }
+         ]
+      }
+/api/users/:id/roles
   - GET: get list of roles added to the user
   - POST: can add a list of roles to the user
-    {
-      "roles": [
-            {
-              "name": "string" # Many=True
-            }
-       ]
-    }
-- /api/users/:id/permissions
+    - {
+        "roles": [
+              {
+                "name": "string" # Many=True
+              }
+         ]
+      }
+/api/users/:id/permissions
   - GET: get list of permissions assigned to a user
