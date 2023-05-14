@@ -14,7 +14,7 @@ To use the project, follow these commands:
 4. docker-compose up
 5. open brower and run "http://127.0.0.1:8000/api/docs/"
 
-#API methods
+# API methods
 /api/signup
   - POST: A user can be signed up with a username, email and password.
     {
