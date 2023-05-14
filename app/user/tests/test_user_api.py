@@ -131,10 +131,6 @@ class PrivateUserApiTests(TestCase):
         )
         self.client.force_authenticate(user=self.user)
 
-        self.role = Role.objects.create(
-            name='Sample Role',
-        )
-
     def test_retrieve_profile_success(self):
         """Test retrieving profile for logged in user."""
         res = self.client.get(USER_URL, pk=1)
@@ -148,10 +144,9 @@ class PrivateUserApiTests(TestCase):
 
     def test_add_and_get_roles(self):
         """Test adding and getting roles"""
-
         create_userroles(user=self.user)
-
-        payload = {'roles': [{'name': 'Sample Role'}]}
+        create_roles(name='admin')
+        payload = {'roles': [{'name': 'admin'}]}
 
         res_put = self.client.put(
             reverse('user:user-roles', args=[self.user.id]),

@@ -80,7 +80,6 @@ class PrivateRecipeAPITests(TestCase):
     def test_retrieve_roles(self):
         """Test retrieving a list of roles."""
         create_role()
-        create_role()
 
         res = self.client.get(ROLE_URL)
 
@@ -99,7 +98,6 @@ class PrivateRecipeAPITests(TestCase):
 
     def test_retrieve_permission(self):
         """Test retrieving a list of permission."""
-        create_permission()
         create_permission()
 
         res = self.client.get(PERMISSION_URL)
