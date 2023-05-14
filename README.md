@@ -15,29 +15,36 @@ To use the project, follow these commands:
 5. open brower and run "http://127.0.0.1:8000/api/docs/"
 
 # API methods
-/api/signup
+* /api/signup
   - POST: A user can be signed up with a username, email and password.
-    - {
+    ```json
+     {
         "username": "string",
         "email": "user@example.com",
         "password": "string"
-      }
-/api/login
+     } 
+      
+* /api/login
   - POST: A user can be logged in with username/email and password
-    - {
+      ```json
+      {
         "username": "string",
         "password": "string"
       }
- /api/permissions
+      
+* /api/permissions
   - GET: get available permissions
   - POST: create new permission (e.g access, read, delete, etc)
-    - {
+      ```json
+      {
         "name": "string"
       }
- /api/roles
+      
+* /api/roles
   - GET: get available roles
   - POST: create a new role (e.g staff, admin, hr, etc)
-    - {
+      ```json
+      {
         "name": "string",
         "permissions": [  # not required
             {
@@ -45,10 +52,12 @@ To use the project, follow these commands:
             }
         ]
       }
-/api/roles/:id/permissions
+      
+* /api/roles/:id/permissions
   - GET: get available permission to a certain role
   - PUT: assign a permission to a role
-    - {
+    ```json
+      {
         "name": "string",
         "permissions": [
               {
@@ -56,15 +65,18 @@ To use the project, follow these commands:
               }
          ]
       }
-/api/users/:id/roles
+      
+* /api/users/:id/roles
   - GET: get list of roles added to the user
   - POST: can add a list of roles to the user
-    - {
+    ```json
+      {
         "roles": [
               {
                 "name": "string" # Many=True
               }
          ]
       }
-/api/users/:id/permissions
+      
+* /api/users/:id/permissions
   - GET: get list of permissions assigned to a user
